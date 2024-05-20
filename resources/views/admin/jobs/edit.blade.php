@@ -31,33 +31,10 @@
                                     <input value="{{ $job->title }}" type="text" placeholder="Job Title" id="title" name="title" class="form-control">
                                     <p></p>
                                 </div>
-                                <div class="col-md-6  mb-4">
-                                    <label for="" class="mb-2">Category<span class="req">*</span></label>
-                                    <select name="category" id="category" class="form-control">
-                                        <option value="">Select a Category</option>
-                                        @if ($categories->isNotEmpty())
-                                            @foreach ($categories as $category)
-                                            <option {{ ($job->category_id == $category->id) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                    <p></p>
-                                </div>
+
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <label for="" class="mb-2">Job Type<span class="req">*</span></label>
-                                    <select name="jobType" id="jobType" class="form-select">
-                                        <option value="">Select Job Type</option>
-                                        @if ($jobTypes->isNotEmpty())
-                                            @foreach ($jobTypes as $jobType)
-                                            <option {{ ($job->job_type_id == $jobType->id) ? 'selected' : '' }} value="{{ $jobType->id }}">{{ $jobType->name }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                    <p></p>
-                                </div>
+                            
                                 <div class="col-md-6  mb-4">
                                     <label for="" class="mb-2">Vacancy<span class="req">*</span></label>
                                     <input value="{{ $job->vacancy }}" type="number" min="1" placeholder="Vacancy" id="vacancy" name="vacancy" class="form-control">

@@ -30,33 +30,10 @@
                                     <input type="text" placeholder="Job Title" id="title" name="title" class="form-control">
                                     <p></p>
                                 </div>
-                                <div class="col-md-6  mb-4">
-                                    <label for="" class="mb-2">Category<span class="req">*</span></label>
-                                    <select name="category" id="category" class="form-control">
-                                        <option value="">Select a Category</option>
-                                        @if ($categories->isNotEmpty())
-                                            @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                    <p></p>
-                                </div>
+
                             </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <label for="" class="mb-2">Job Type<span class="req">*</span></label>
-                                    <select name="jobType" id="jobType" class="form-select">
-                                        <option value="">Select Job Type</option>
-                                        @if ($jobTypes->isNotEmpty())
-                                            @foreach ($jobTypes as $jobType)
-                                            <option value="{{ $jobType->id }}">{{ $jobType->name }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                    <p></p>
-                                </div>
+
+
                                 <div class="col-md-6  mb-4">
                                     <label for="" class="mb-2">Vacancy<span class="req">*</span></label>
                                     <input type="number" min="1" placeholder="Vacancy" id="vacancy" name="vacancy" class="form-control">
@@ -112,8 +89,8 @@
                                 </select>
                                 <p></p>
                             </div>
-                            
-                            
+
+
 
                             <div class="mb-4">
                                 <label for="" class="mb-2">Keywords</label>
@@ -139,13 +116,13 @@
                                 <label for="" class="mb-2">Website</label>
                                 <input type="text" placeholder="Website" id="website" name="website" class="form-control">
                             </div>
-                        </div> 
+                        </div>
                         <div class="card-footer  p-4">
                             <button type="submit" class="btn btn-primary">Save Job</button>
-                        </div>               
+                        </div>
                     </div>
                 </form>
-                               
+
             </div>
         </div>
     </div>
@@ -169,16 +146,6 @@ $("#createJobForm").submit(function(e){
             if(response.status == true) {
 
                 $("#title").removeClass('is-invalid')
-                    .siblings('p')
-                    .removeClass('invalid-feedback')
-                    .html('')
-
-                $("#category").removeClass('is-invalid')
-                    .siblings('p')
-                    .removeClass('invalid-feedback')
-                    .html('')
-
-                $("#jobType").removeClass('is-invalid')
                     .siblings('p')
                     .removeClass('invalid-feedback')
                     .html('')
@@ -221,30 +188,7 @@ $("#createJobForm").submit(function(e){
                     .html('')
                 }
 
-                if (errors.category) {
-                    $("#category").addClass('is-invalid')
-                    .siblings('p')
-                    .addClass('invalid-feedback')
-                    .html(errors.category)
-                } else {
-                    $("#category").removeClass('is-invalid')
-                    .siblings('p')
-                    .removeClass('invalid-feedback')
-                    .html('')
-                }
-
-                if (errors.jobType) {
-                    $("#jobType").addClass('is-invalid')
-                    .siblings('p')
-                    .addClass('invalid-feedback')
-                    .html(errors.jobType)
-                } else {
-                    $("#jobType").removeClass('is-invalid')
-                    .siblings('p')
-                    .removeClass('invalid-feedback')
-                    .html('')
-                }
-
+             
                 if (errors.vacancy) {
                     $("#vacancy").addClass('is-invalid')
                     .siblings('p')
